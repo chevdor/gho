@@ -2,7 +2,7 @@
 
 A simple multi-platform cli utility written in Rust that opens your browser in your project’s repo on gitlab or github.
 
-Unlike the following, that will not work on Windows:
+While a bash script like the following could work, that will not work on Windows:
 
     gh ()
     {
@@ -15,9 +15,13 @@ Unlike the following, that will not work on Windows:
         open $URL )
     }
 
-`gh` should work fine (testers and feedback are welcome).
+`gh` on the other hand, should work fine (testers and feedback are welcome).
 
 The url is fetched on your remotes.
+
+## Install
+
+    cargo install --git https://gitbub.com/chevdor/gh
 
 ## Usage
 
