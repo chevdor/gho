@@ -47,19 +47,23 @@ fn main() -> Result<(), String> {
 	info!("Running {} v{}", crate_name!(), crate_version!());
 
 	let opts: Opts = Opts::parse();
-	let git_remote = run_command("git remote").unwrap();
-	debug!("git remote: {:?}", git_remote);
+	let output = run_command("git remote").unwrap();
+	debug!("git remote => {}", output);
 
+	let git_remotes: Vec<&str> = output.trim_end().split('\n').collect();
+	debug!("git remote: {:?}", git_remotes);
+
+	let git_remote = git_remotes[0];
 	let remote = match opts.remote {
 		Some(ref r) => r,
-		_ => &git_remote,
+		_ => git_remote,
 	};
 	let remote = String::from(remote);
 	let remote = remote.trim_end();
 
 	let url = get_url(remote).unwrap_or_else(|_| panic!("Failed getting url for '{}'", remote));
 
-	debug!("Opening url: {}", url);
+	debug!("Opening {} => {}", git_remote, url);
 	print!("{}", url);
 	match webbrowser::open(&url) {
 		Ok(_) => Ok(()),
