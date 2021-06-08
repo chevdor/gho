@@ -28,13 +28,16 @@ fn get_url(remote: &str) -> Result<String, String> {
 	let cmd = format!("git config remote.{}.url", remote);
 	debug!("{}", cmd);
 	let url = run_command(&cmd)?;
-	debug!("url: {}", url);
 
-	let re = Regex::new(r"git@(.*):(.*).git.*").unwrap();
-	let caps = re.captures(&url).unwrap();
+	// we remove the ".git" to make the regexp simpler
+	let cleaned = url.trim_end().replace(".git", "");
+	debug!("cleaned: {}", cleaned);
 
-	let site = caps.get(1).map_or("", |m| m.as_str());
-	let repo = caps.get(2).map_or("", |m| m.as_str());
+	let re = Regex::new(r"(git@|https?://)(.*?)(:|/)(.*)").unwrap();
+	let caps = re.captures(&&cleaned).unwrap();
+
+	let site = caps.get(2).map(|m| m.as_str()).expect("Failed parsing site, please report this issue");
+	let repo = caps.get(4).map(|m| m.as_str()).expect("Failed parsing the repo, please report this issue");
 
 	debug!("site: {}", site);
 	debug!("repo: {}", repo);
@@ -48,8 +51,6 @@ fn main() -> Result<(), String> {
 
 	let opts: Opts = Opts::parse();
 	let output = run_command("git remote").unwrap();
-	debug!("git remote => {}", output);
-
 	let git_remotes: Vec<&str> = output.trim_end().split('\n').collect();
 	debug!("git remote: {:?}", git_remotes);
 
