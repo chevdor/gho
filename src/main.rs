@@ -34,7 +34,7 @@ fn get_url(remote: &str) -> Result<String, String> {
 	debug!("cleaned: {}", cleaned);
 
 	let re = Regex::new(r"(git@|https?://)(.*?)(:|/)(.*)").unwrap();
-	let caps = re.captures(&&cleaned).unwrap();
+	let caps = re.captures(&cleaned).unwrap();
 
 	let site = caps.get(2).map(|m| m.as_str()).expect("Failed parsing site, please report this issue");
 	let repo = caps.get(4).map(|m| m.as_str()).expect("Failed parsing the repo, please report this issue");
@@ -54,7 +54,7 @@ fn main() -> Result<(), String> {
 	let git_remotes: Vec<&str> = output.trim_end().split('\n').collect();
 	debug!("git remote: {:?}", git_remotes);
 
-	let git_remote = git_remotes[0];
+	let git_remote = if git_remotes.contains(&"origin") { "origin" } else { git_remotes[0] };
 	let remote = match opts.remote {
 		Some(ref r) => r,
 		_ => git_remote,
