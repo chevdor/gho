@@ -22,7 +22,7 @@ The url is fetched on your remotes.
 
 == Install
 
-    cargo install --git https://gitbub.com/chevdor/gh
+    cargo install --locked --git https://github.com/chevdor/gh --tag v0.2.0
 
 == Usage
 
