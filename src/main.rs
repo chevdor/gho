@@ -2,7 +2,7 @@ mod opts;
 use std::process::Command;
 use std::str;
 
-use clap::{crate_name, crate_version, Clap};
+use clap::{crate_name, crate_version, StructOpt};
 use env_logger::Env;
 use log::{debug, info};
 use opts::*;
