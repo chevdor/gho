@@ -2,7 +2,7 @@ mod opts;
 use std::process::Command;
 use std::str;
 
-use clap::{crate_name, crate_version, StructOpt};
+use clap::{crate_name, crate_version, Parser};
 use env_logger::Env;
 use log::{debug, info};
 use opts::*;
@@ -10,7 +10,7 @@ use regex::Regex;
 
 fn run_command(cmd: &str) -> Result<String, String> {
 	let output = if cfg!(target_os = "windows") {
-		Command::new("cmd").args(&["/C", cmd]).output().expect("failed to call git")
+		Command::new("cmd").args(["/C", cmd]).output().expect("failed to call git")
 	} else {
 		Command::new("sh").arg("-c").arg(cmd).output().expect("failed to call git")
 	};
