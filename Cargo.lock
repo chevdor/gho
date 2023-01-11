@@ -193,7 +193,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "gh"
+name = "gho"
 version = "0.2.4"
 dependencies = [
  "clap",

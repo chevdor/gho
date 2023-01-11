@@ -1,10 +1,10 @@
-= gh
+= gho
 
 A simple multi-platform cli utility written in Rust that opens your browser in your project's repo on gitlab or github.
 
 While a bash script like the following could work, that will not work on Windows:
 ```
-gh ()
+gho ()
 {
     ( set -e;
     git remote -v | grep push;
@@ -16,18 +16,18 @@ gh ()
 }
 ```
 
-`gh` on the other hand, should work fine (testers and feedback are welcome).
+`gho` on the other hand, should work fine (testers and feedback are welcome).
 
 The url is fetched on your remotes.
 
 == Install
 
-    cargo install --locked --git https://github.com/chevdor/gh --tag v0.2.0
+    cargo install --locked --git https://github.com/chevdor/gho --tag v0.2.0
 
 == Usage
 
-- `gh` to simply open the first remote
-- `gh upstream` to open your `upstream` remote
+- `gho` to simply open the first remote
+- `gho upstream` to open your `upstream` remote
 
 ----
 include::doc/usage.adoc[]
