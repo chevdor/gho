@@ -3,6 +3,8 @@ authors = ["chevdor <chevdor@gmail.com>"]
 edition = "2021"
 name = "gho"
 version = "0.2.4"
+description = "cli to open your repo in the Github/Gitlab web ui"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
