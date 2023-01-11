@@ -28,3 +28,16 @@ The url is fetched on your remotes.
 -   `gh` to simply open the first remote
 
 -   `gh upstream` to open your `upstream` remote
+
+<!-- -->
+
+    Command line utility for the tera templating engine. You need to provide a template using the tera syntax as well as some data (various format are supported)
+
+    Usage: gh [REMOTE]
+
+    Arguments:
+      [REMOTE]  Name of a remote
+
+    Options:
+      -h, --help     Print help information
+      -V, --version  Print version information
