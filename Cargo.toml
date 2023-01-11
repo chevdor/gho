@@ -2,7 +2,7 @@
 authors = ["chevdor <chevdor@gmail.com>"]
 edition = "2021"
 name = "gh"
-version = "0.2.0"
+version = "0.2.4"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
