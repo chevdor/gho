@@ -28,3 +28,7 @@ The url is fetched on your remotes.
 
 - `gh` to simply open the first remote
 - `gh upstream` to open your `upstream` remote
+
+----
+include::doc/usage.adoc[]
+----

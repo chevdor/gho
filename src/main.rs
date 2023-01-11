@@ -25,13 +25,13 @@ fn run_command(cmd: &str) -> Result<String, String> {
 fn get_url(remote: &str) -> Result<String, String> {
 	debug!("get url for: {}", remote);
 
-	let cmd = format!("git config remote.{}.url", remote);
-	debug!("{}", cmd);
+	let cmd = format!("git config remote.{remote}.url");
+	debug!("{cmd}");
 	let url = run_command(&cmd)?;
 
 	// we remove the ".git" to make the regexp simpler
 	let cleaned = url.trim_end().replace(".git", "");
-	debug!("cleaned: {}", cleaned);
+	debug!("cleaned: {cleaned}");
 
 	let re = Regex::new(r"(git@|https?://)(.*?)(:|/)(.*)").unwrap();
 	let caps = re.captures(&cleaned).unwrap();
@@ -39,10 +39,10 @@ fn get_url(remote: &str) -> Result<String, String> {
 	let site = caps.get(2).map(|m| m.as_str()).expect("Failed parsing site, please report this issue");
 	let repo = caps.get(4).map(|m| m.as_str()).expect("Failed parsing the repo, please report this issue");
 
-	debug!("site: {}", site);
-	debug!("repo: {}", repo);
+	debug!("site: {site}");
+	debug!("repo: {repo}");
 
-	Ok(format!("https://{site}/{repo}", site = site, repo = repo))
+	Ok(format!("https://{site}/{repo}"))
 }
 
 fn main() -> Result<(), String> {
@@ -62,10 +62,10 @@ fn main() -> Result<(), String> {
 	let remote = String::from(remote);
 	let remote = remote.trim_end();
 
-	let url = get_url(remote).unwrap_or_else(|_| panic!("Failed getting url for '{}'", remote));
+	let url = get_url(remote).unwrap_or_else(|_| panic!("Failed getting url for '{remote}'"));
 
-	debug!("Opening {} => {}", git_remote, url);
-	print!("{}", url);
+	debug!("Opening {git_remote} => {url}");
+	print!("{url}");
 	match webbrowser::open(&url) {
 		Ok(_) => Ok(()),
 		_ => Err("Problem while opening browser".to_string()),
