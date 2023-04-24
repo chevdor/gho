@@ -1,10 +1,10 @@
 Command line utility for the tera templating engine. You need to provide a template using the tera syntax as well as some data (various format are supported)
 
-Usage: gh [REMOTE]
+Usage: gho [REMOTE]
 
 Arguments:
   [REMOTE]  Name of a remote
 
 Options:
-  -h, --help     Print help information
-  -V, --version  Print version information
+  -h, --help     Print help
+  -V, --version  Print version
