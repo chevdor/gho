@@ -28,3 +28,12 @@ _clippy:
 
 # Run checks such as clippy, rustfmt, etc...
 check: _clippy _fmt
+
+# Create a new tag using the current version
+git_tag:
+	@git tag v{{ VERSION }} -f
+	@git tag | sort -rn | head
+
+# Push the newly created tag
+git_tag_push:
+	@git push origin v{{ VERSION }} -f
