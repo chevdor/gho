@@ -21,7 +21,7 @@ The url is fetched on your remotes.
 
 ## Install
 
-    cargo install --locked --git https://github.com/chevdor/gho --tag v0.2.0
+    cargo install --locked --git https://github.com/chevdor/gh
 
 ## Usage
 
