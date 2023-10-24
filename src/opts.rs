@@ -1,7 +1,7 @@
 use clap::{crate_authors, crate_version, Parser};
 
-/// Command line utility for the tera templating engine. You need to provide a template using the tera syntax
-/// as well as some data (various format are supported).
+/// Command line utility to quickly open your github/gitlab repo
+/// in a browser.
 #[derive(Debug, Parser)]
 #[clap(version = crate_version!(), author = crate_authors!())]
 pub struct Opts {
