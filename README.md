@@ -21,7 +21,7 @@ The url is fetched on your remotes.
 
 ## Install
 
-    cargo install --locked --git https://github.com/chevdor/gh
+    cargo install --locked --git https://github.com/chevdor/gho
 
 ## Usage
 
@@ -31,7 +31,7 @@ The url is fetched on your remotes.
 
 <!-- -->
 
-    Command line utility for the tera templating engine. You need to provide a template using the tera syntax as well as some data (various format are supported)
+    Command line utility to quickly open your github/gitlab repo in a browser
 
     Usage: gho [REMOTE]
 
