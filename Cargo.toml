@@ -2,7 +2,7 @@
 authors = ["chevdor <chevdor@gmail.com>"]
 edition = "2021"
 name = "gho"
-version = "0.4.0"
+version = "0.5.0"
 description = "cli to open your repo in the Github/Gitlab web ui"
 license = "MIT"
 repository = "https://github.com/chevdor/gho"
@@ -10,11 +10,11 @@ repository = "https://github.com/chevdor/gho"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = { version = "4", features = ["derive", "env", "unicode", "cargo"] }
-env_logger = "0.10"
-log = "0.4"
-regex = "1.5"
-webbrowser = "0.8"
+clap = { version = "4.5.23", features = ["derive", "env", "unicode", "cargo"] }
+env_logger = "0.11.5"
+log = "0.4.22"
+regex = "1.11.1"
+webbrowser = "1.0.3"
 
 [[bin]]
 name = "gho"
